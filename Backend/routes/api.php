@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\CursoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/cursos', [CursoController::class, 'index']);
+Route::post('/cursos', [CursoController::class, 'store']);
+Route::put('/cursos/{id}', [CursoController::class, 'update']);
+Route::delete('/cursos/{id}', [CursoController::class, 'destroy']);
